@@ -1,3 +1,5 @@
+from services.steamship_integration import gpt4_generate_text
+
 def execute_task(task):
     task_type, task_data = task
 
