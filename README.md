@@ -11,10 +11,12 @@ pip install -r requirements.dev.txt
 ```
 
 ## Folder structure
+
+```
 project_root/
 ├── steamship_package/
 │   ├── src/
-│   │   └── api.py          # done in first iteration
+│   │   └── api.py
 │   ├── tests/
 │   │   ├── __init__.py
 │   │   └── test_api.py
@@ -26,12 +28,12 @@ project_root/
 ├── task_management_system/
 │   ├── agents/
 │   │   ├── __init__.py
-│   │   ├── execution_agent.py  # done in first
+│   │   ├── execution_agent.py
 │   │   ├── task_creation_agent.py
 │   │   └── task_prioritization_agent.py
 │   ├── services/
 │   │   ├── __init__.py
-│   │   ├── steamship_integration.py    # done in first
+│   │   ├── steamship_integration.py
 │   │   ├── pinecone_integration.py
 │   │   └── langchain_integration.py
 │   ├── utils/
@@ -41,3 +43,4 @@ project_root/
 │   └── main.py
 ├── .gitignore
 └── README.md
+```
