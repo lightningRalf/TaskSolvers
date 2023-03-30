@@ -22,7 +22,14 @@ for model_type, model_instances in LLM_model.items():
         instance = create_instance(instance_handle, model_type, instance_config)
         instances[instance_handle] = instance
 
+# Task queue to hold tasks
+task_queue = []
 
+def add_tasks_to_queue(tasks):
+    """Add tasks to the task queue."""
+    task_queue.extend(tasks)
+
+        
 # Access the instances using their handles, e.g.:
 gpt4_execution_agent_instance = instances["gpt4-execution-agent-instance"]
 gpt4_task_creation_agent_instance = instances["gpt4-task-creation-agent-instance"]
