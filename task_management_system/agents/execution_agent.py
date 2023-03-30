@@ -1,7 +1,7 @@
 # filename: execution_agent.py
 # description: Processes tasks based on roles and interacts with memory.
 
-from services.pinecone_integration import memory
+from utils.memory import Memory
 
 # Dictionary to map roles to their corresponding function
 role_to_function_map = {
@@ -11,7 +11,8 @@ role_to_function_map = {
 }
 
 # Initialize memory
-memory = Memory()
+api_key = "your_steamship_api_key"
+memory = Memory(api_key=api_key)
 
 while task_queue:
     # ...
@@ -23,9 +24,9 @@ while task_queue:
 
     try:
         if function_to_execute:
-            context = memory.get_context(current_task["task"])
-            result = function_to_execute(current_task["task"], context)
-            memory.store(task=current_task["task"], result=result, priority=current_task["priority"], role=current_task["role"])
+            task, context, priority, role = memory.retrieve(current_task["task_id"])
+            result = function_to_execute(task, context)
+            memory.store(task=task, result=result, priority=priority, role=role)
         else:
             print(f"No function found for role '{current_task['role']}' and type '{current_task['type']}'")
     except Exception as e:
