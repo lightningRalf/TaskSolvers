@@ -2,6 +2,8 @@
 # description: Processes tasks based on roles and interacts with memory.
 
 from utils.memory import Memory
+from api import memory
+
 
 # Dictionary to map roles to their corresponding function
 role_to_function_map = {
@@ -9,10 +11,6 @@ role_to_function_map = {
     "gpt3_5_agent_1": gpt3_5_agent_1,
     # Add other role-function mappings here
 }
-
-# Initialize memory
-api_key = "your_steamship_api_key"
-memory = Memory(api_key=api_key)
 
 while task_queue:
     # ...
