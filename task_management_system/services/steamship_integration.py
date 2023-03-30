@@ -2,11 +2,12 @@
 # Description: This module integrates Steamship API with the task management system
 
 from steamship import Steamship
-from api import CustomSteamshipPackage
+from steamship_langchain import LangChainOpenAI
+from api import api_key
 from config import instances, LLM_model, specific_traits
 
 def create_instance(instance_handle, model_type, custom_parameters):
-    instance = Steamship(api_key=steamship_api_key)
+    instance = Steamship(api_key=api_key)
     instance.model_type = model_type
     instance.instance_handle = instance_handle
     instance.custom_parameters = custom_parameters
