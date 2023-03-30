@@ -2,7 +2,7 @@
 # Description: This module integrates Steamship API with the task management system
 
 from steamship import Steamship
-from steamship_langchain import LangChainOpenAI
+# from steamship_langchain import LangChainOpenAI
 from api import api_key
 from config import instances, LLM_model, specific_traits
 
@@ -32,14 +32,14 @@ gpt3_5_agent_instance_2 = instances["gpt3-5-agent-instance-2"]
 gpt3_5_agent_instance_3 = instances["gpt3-5-agent-instance-3"]
 
 # Initialize LangChain OpenAI instances for GPT-4 instances
-langchain_openai_gpt4_execution_agent = LangChainOpenAI(client=instances["gpt4-execution-agent-instance"])
-langchain_openai_gpt4_task_creation_agent = LangChainOpenAI(client=instances["gpt4-task-creation-agent-instance"])
-langchain_openai_gpt4_task_prioritization_agent = LangChainOpenAI(client=instances["gpt4-task-prioritization-agent-instance"])
+# LC_gpt4_execution_agent = LangChainOpenAI(client=instances["gpt4-execution-agent-instance"])
+# LC_gpt4_task_creation_agent = LangChainOpenAI(client=instances["gpt4-task-creation-agent-instance"])
+# LC_gpt4_task_prioritization_agent = LangChainOpenAI(client=instances["gpt4-task-prioritization-agent-instance"])
 
 # Initialize LangChain OpenAI instances for GPT-3.5 instances
-langchain_openai_gpt3_5_1 = LangChainOpenAI(client=instances["gpt3-5-agent-instance-1"])
-langchain_openai_gpt3_5_2 = LangChainOpenAI(client=instances["gpt3-5-agent-instance-2"])
-langchain_openai_gpt3_5_3 = LangChainOpenAI(client=instances["gpt3-5-agent-instance-3"])
+# LC_gpt3_5_1 = LangChainOpenAI(client=instances["gpt3-5-agent-instance-1"])
+# LC_gpt3_5_2 = LangChainOpenAI(client=instances["gpt3-5-agent-instance-2"])
+# LC_gpt3_5_3 = LangChainOpenAI(client=instances["gpt3-5-agent-instance-3"])
 
 def gpt4_execution_agent(input_text):
     response = execution_agent_instance.post("execute_task", input_text=input_text)
