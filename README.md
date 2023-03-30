@@ -1,7 +1,6 @@
 # TaskSolvers
 
-```
-o set up the system you described, follow these steps:
+To set up the system you described, follow these steps:
 
 Integrate the Steamship API by following the documentation provided on https://docs.steamship.com/. This will enable communication with the Steamship platform.
 
@@ -30,7 +29,7 @@ d. The Task Prioritization Agent retrieves all tasks from the task queue, priori
 e. Repeat steps b through d until the initial objective is solved.
 
 This system will iteratively solve tasks, generate new tasks based on results, and prioritize tasks in the queue until the initial objective is completed. Note that some customization may be necessary to integrate GPT-4 with Steamship, Pinecone, and Langchain, as well as for the task management components.
-```
+
 
 
 First, clone the Steamship starter package and set up a virtual environment following the instructions from the Steamship documentation:
