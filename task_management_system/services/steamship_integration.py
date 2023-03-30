@@ -1,3 +1,6 @@
+# steamship_integration.py
+# Description: This module integrates Steamship API with the task management system
+
 from steamship import Steamship
 from api import CustomSteamshipPackage
 from config import instances, LLM_model, specific_traits
