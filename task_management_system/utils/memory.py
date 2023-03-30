@@ -6,8 +6,7 @@ from api import api_key
 
 class Memory:
     def __init__(self):
-        self.client = Steamship(api_key=api_key)
-        self.steamship = Steamship(api_key=self.api_key)
+        self.steamship = Steamship(api_key=api_key)
 
     def store(self, task, result, priority, role):
         """Store a task/result pair with priority and role in memory."""
