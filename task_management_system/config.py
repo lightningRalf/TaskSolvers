@@ -12,7 +12,6 @@ LLM_model = {
     "gpt3_5": {
         "gpt3-5-quality-assurance-engineer-instance": {"role": "lead-quality-assurance-engineer", "traits": "focused", "other_parameter": "custom_value"},
         "gpt3-5-software-engineer-instance": {"role": "software-engineer", "traits": "creative", "other_parameter": "custom_value"},
-        "gpt3-5-software-engineer-instance": {"role": "software-engineer", "traits": "creative", "other_parameter": "custom_value"},
         "gpt3-5-cybersecurity-specialist-instance": {"role": "cybersecurity-specialist", "traits": "analytical", "other_parameter": "custom_value"}
     }
 }
