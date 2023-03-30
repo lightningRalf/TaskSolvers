@@ -12,17 +12,12 @@ def create_instance(instance_handle, model_type, custom_parameters):
 
 instances = {}
 
-# Create GPT-4 instances
-for instance_handle, instance_config in LLM_model["gpt4"].items():
-    model_type = "gpt4"
-    instance = create_instance(instance_handle, model_type, instance_config)
-    instances[instance_handle] = instance
+# Create LLM instances
+for model_type, model_instances in LLM_model.items():
+    for instance_handle, instance_config in model_instances.items():
+        instance = create_instance(instance_handle, model_type, instance_config)
+        instances[instance_handle] = instance
 
-# Create GPT-3.5 instances
-for instance_handle, instance_config in LLM_model["gpt3_5"].items():
-    model_type = "gpt3_5"
-    instance = create_instance(instance_handle, model_type, instance_config)
-    instances[instance_handle] = instance
 
 # Access the instances using their handles, e.g.:
 execution_agent_instance = instances["gpt4-execution-agent-instance"]
