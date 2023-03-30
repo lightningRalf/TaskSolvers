@@ -3,8 +3,9 @@
 
 from steamship import Steamship
 # from steamship_langchain import LangChainOpenAI
+from steamship_package.src.steamship import Steamship
 from api import api_key
-from config import instances, LLM_model, specific_traits
+from config import LLM_model
 
 def create_instance(instance_handle, model_type, custom_parameters):
     instance = Steamship(api_key=api_key)
@@ -23,13 +24,13 @@ for model_type, model_instances in LLM_model.items():
 
 
 # Access the instances using their handles, e.g.:
-execution_agent_instance = instances["gpt4-execution-agent-instance"]
-task_creation_agent_instance = instances["gpt4-task-creation-agent-instance"]
-task_prioritization_agent_instance = instances["gpt4-task-prioritization-agent-instance"]
+gpt4_execution_agent_instance = instances["gpt4-execution-agent-instance"]
+gpt4_task_creation_agent_instance = instances["gpt4-task-creation-agent-instance"]
+gpt4_task_prioritization_agent_instance = instances["gpt4-task-prioritization-agent-instance"]
+gpt4_quality_assurance_agent_instance = instances["gpt4-quality_assurance_agent-instance"]
 
-gpt3_5_agent_instance_1 = instances["gpt3-5-agent-instance-1"]
-gpt3_5_agent_instance_2 = instances["gpt3-5-agent-instance-2"]
-gpt3_5_agent_instance_3 = instances["gpt3-5-agent-instance-3"]
+gpt3_5_software_engineer_instance = instances["gpt3-5-software-engineer-instance"]
+gpt3_5_cybersecurity_specialist_instance = instances["gpt3-5-cybersecurity-specialist-instance"]
 
 # Initialize LangChain OpenAI instances for GPT-4 instances
 # LC_gpt4_execution_agent = LangChainOpenAI(client=instances["gpt4-execution-agent-instance"])
@@ -56,18 +57,18 @@ def gpt4_task_prioritization_agent(input_text):
     prioritized_tasks = response["result"]
     return prioritized_tasks
 
-def gpt3_5_agent_1(input_text):
-    response = gpt3_5_agent_instance_1.post("execute_task", input_text=input_text)
+def gpt4_quality_assurance_agent(input_text):
+    response = gpt4_quality_assurance_agent_instance.post("quality_assurance", input_text=input_text)
     result = response["result"]
     return result
 
-def gpt3_5_agent_2(input_text):
-    response = gpt3_5_agent_instance_2.post("execute_task", input_text=input_text)
+def gpt3_5_software_engineer(input_text):
+    response = gpt3_5_software_engineer_instance.post("software_engineering", input_text=input_text)
     result = response["result"]
     return result
 
-def gpt3_5_agent_3(input_text):
-    response = gpt3_5_agent_instance_3.post("execute_task", input_text=input_text)
+def gpt3_5_cybersecurity_specialist(input_text):
+    response = gpt3_5_cybersecurity_specialist_instance.post("cybersecurity", input_text=input_text)
     result = response["result"]
     return result
 
