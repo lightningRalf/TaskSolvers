@@ -32,3 +32,32 @@ def gpt4_task_prioritization_agent(input_text):
     response = task_prioritization_agent_instance.post("prioritize_tasks", input_text=input_text)
     prioritized_tasks = response["result"]
     return prioritized_tasks
+
+def create_gpt3_5_instance(custom_parameters, instance_handle):
+    instance = Steamship.use("your_deployed_gpt3_5_package_name", instance_handle, config=custom_parameters)
+    return instance
+
+# Customize the instances based on their specific roles
+gpt3_5_instance_handle = "gpt3-5-shared-instance-handle"
+gpt3_5_shared_instance_config = {"traits": "balanced"}
+
+gpt3_5_agent_instance_1 = create_gpt3_5_instance(gpt3_5_shared_instance_config, gpt3_5_instance_handle)
+gpt3_5_agent_instance_2 = create_gpt3_5_instance(gpt3_5_shared_instance_config, gpt3_5_instance_handle)
+gpt3_5_agent_instance_3 = create_gpt3_5_instance(gpt3_5_shared_instance_config, gpt3_5_instance_handle)
+
+def gpt3_5_agent_1(input_text):
+    response = gpt3_5_agent_instance_1.post("execute_task", input_text=input_text)
+    result = response["result"]
+    return result
+
+def gpt3_5_agent_2(input_text):
+    response = gpt3_5_agent_instance_2.post("execute_task", input_text=input_text)
+    result = response["result"]
+    return result
+
+def gpt3_5_agent_3(input_text):
+    response = gpt3_5_agent_instance_3.post("execute_task", input_text=input_text)
+    result = response["result"]
+    return result
+
+
