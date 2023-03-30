@@ -1,5 +1,7 @@
-# filename: task_processing_agent.py
-# description: Processes tasks based on roles.
+# filename: execution_agent.py
+# description: Processes tasks based on roles and interacts with memory.
+
+from utils.memory import Memory
 
 # Dictionary to map roles to their corresponding function
 role_to_function_map = {
@@ -7,6 +9,9 @@ role_to_function_map = {
     "gpt3_5_agent_1": gpt3_5_agent_1,
     # Add other role-function mappings here
 }
+
+# Initialize memory
+memory = Memory()
 
 while task_queue:
     # ...
@@ -18,7 +23,9 @@ while task_queue:
 
     try:
         if function_to_execute:
-            result = function_to_execute(current_task["task"])
+            context = memory.get_context(current_task["task"])
+            result = function_to_execute(current_task["task"], context)
+            memory.store_task_result(current_task["task"], result)
         else:
             print(f"No function found for role '{current_task['role']}' and type '{current_task['type']}'")
     except Exception as e:
