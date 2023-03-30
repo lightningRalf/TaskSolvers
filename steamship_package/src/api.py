@@ -1,13 +1,7 @@
-# api.py
-# Description: This script integrates the Steamship API, GPT-4, Pinecone, and Langchain.
+# filename: api.py
+# description: This module provides a way to initialize the Memory object with the Steamship API key.
 
-from steamship.invocable import post, PackageService
+from utils.memory import Memory
 
-class CustomSteamshipPackage(PackageService):
-
-    @post("gpt4_generate_text")
-    def gpt4_generate_text(self, input_text: str) -> str:
-        # Implement the logic to generate text using GPT-4 based on the input_text
-        pass
-
-    # Add other methods for Pinecone and Langchain integration as needed
+api_key = "your_steamship_api_key"
+memory = Memory(api_key=api_key)
