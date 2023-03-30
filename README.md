@@ -5,7 +5,7 @@ Based on:
 Written completely by GPT-4
 
 Changed scetch to address the incorporated changes:
-![image](https://user-images.githubusercontent.com/126403501/228784579-bb36c51d-3643-444a-8f6e-601b8a1a9650.png)
+![image](https://user-images.githubusercontent.com/126403501/228789235-7a601cee-63d6-4d37-ae37-ec70252144d5.png)
 
 
 To set up the system you described, follow these steps:
