@@ -1,13 +1,8 @@
 # filename: memory.py
-# description: A memory class using Pinecone vector database service to store and retrieve task/result pairs with priority and role.
+# description: This module provides a Memory class to store and retrieve task/result pairs.
 
-import os
 import json
-import pinecone
-
-pinecone.deinit()
-pinecone.init(api_key=os.environ["PINECONE_API_KEY"])
-pinecone.create_index(index_name="task_management_memory", metric="euclidean")
+from services.pinecone_integration import memory as pinecone
 
 class Memory:
     def __init__(self):
