@@ -2,12 +2,11 @@
 # description: This module provides a Memory class to store and retrieve task/result pairs using the Steamship API.
 
 import json
-from steamship_package.src.api import steamship_api_key
-from steamship_package.src import Steamship
+from api import api_key
 
 class Memory:
-    def __init__(self, api_key):
-        self.api_key = api_key
+    def __init__(self):
+        self.client = Steamship(api_key=api_key)
         self.steamship = Steamship(api_key=self.api_key)
 
     def store(self, task, result, priority, role):
