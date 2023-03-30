@@ -5,12 +5,11 @@ from steamship import Steamship
 from api import CustomSteamshipPackage
 from config import instances, LLM_model, specific_traits
 
-steamship_api_key = "your_steamship_api_key"
-
-client = Steamship(api_key=steamship_api_key)
-
 def create_instance(instance_handle, model_type, custom_parameters):
-    instance = client.use(model_type, instance_handle, config=custom_parameters)
+    instance = Steamship(api_key=steamship_api_key)
+    instance.model_type = model_type
+    instance.instance_handle = instance_handle
+    instance.custom_parameters = custom_parameters
     return instance
 
 instances = {}
