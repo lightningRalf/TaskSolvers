@@ -7,16 +7,21 @@ from task_prioritization_agent.task_prioritization_agent import TaskPrioritizati
 from services.steamship_integration import task_queue, add_tasks_to_queue
 
 def main():
+   # Set project objective and scope
+    project_goal = "Build a trading bot to execute trades based on predefined strategies."                      # you have to change
+    project_scope = "Develop a software system to access market data, execute trades, and manage positions."    # you have to change
+
     # Initialize the agents and other components
     execution_agent = ExecutionAgent()
-    task_creation_agent = TaskCreationAgent()
+    task_creation_agent = TaskCreationAgent(project_goal, project_scope)
     task_prioritization_agent = TaskPrioritizationAgent()
-
+    
     # Add the initial objective and its first task to the task queue
     initial_task = {
-        "task": "Your initial task",
+        "task_id": "0",
+        "task": "Your initial task",                                                                         # you have to change
         "type": "execution",
-        "role": "gpt4",  # The assigned role (e.g., gpt4, gpt3_5)
+    "role": "task_creation_agent",                                                                          # The assigned role (e.g., gpt4, gpt3_5)
         "priority": 1  # Priority, with lower numbers indicating higher priority
     }
     task_queue.append(initial_task)
