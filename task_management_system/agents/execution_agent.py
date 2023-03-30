@@ -1,7 +1,7 @@
 # filename: execution_agent.py
 # description: Processes tasks based on roles and interacts with memory.
 
-from utils.memory import Memory
+from services.pinecone_integration import memory
 
 # Dictionary to map roles to their corresponding function
 role_to_function_map = {
