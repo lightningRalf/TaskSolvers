@@ -2,6 +2,7 @@
 # description: This module provides a Memory class to store and retrieve task/result pairs using the Steamship API.
 
 import json
+from steamship_package.src.steamship import Steamship
 from api import api_key
 
 class Memory:
