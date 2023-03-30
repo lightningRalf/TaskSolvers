@@ -25,7 +25,7 @@ while task_queue:
         if function_to_execute:
             context = memory.get_context(current_task["task"])
             result = function_to_execute(current_task["task"], context)
-            memory.store_task_result(current_task["task"], result)
+            memory.store(task=current_task["task"], result=result, priority=current_task["priority"], role=current_task["role"])
         else:
             print(f"No function found for role '{current_task['role']}' and type '{current_task['type']}'")
     except Exception as e:
