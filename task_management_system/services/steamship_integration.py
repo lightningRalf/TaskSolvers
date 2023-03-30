@@ -1,26 +1,34 @@
-# steamship_integration.py
-# Description: This module integrates Steamship API with the task management system
-
 from steamship import Steamship
+from api import CustomSteamshipPackage
 
-# Replace these values with your actual Steamship API key and GPT-4 package name
-STEAMSHIP_API_KEY = "your_steamship_api_key"
-GPT4_PACKAGE_NAME = "your_deployed_gpt4_package_name"
+steamship_api_key = "your_steamship_api_key"
+gpt4_package_name = "your_deployed_gpt4_package_name"
 
-# Initialize the Steamship client and create a GPT-4 instance
-client = Steamship(api_key=STEAMSHIP_API_KEY)
-gpt4_instance = client.package(GPT4_PACKAGE_NAME).create()
+client = Steamship(api_key=steamship_api_key)
 
-def gpt4_generate_text(input_text):
-    """
-    Generates text using GPT-4 through Steamship.
+def create_gpt4_instance(custom_parameters, instance_handle):
+    instance = Steamship.use(gpt4_package_name, instance_handle, config=custom_parameters)
+    return instance
 
-    Args:
-        input_text (str): The input text to generate text based on.
+# Customize the instances based on their specific roles
+shared_instance_handle = "shared-instance-handle"
+shared_instance_config = {"traits": "balanced"}
 
-    Returns:
-        str: The generated text.
-    """
-    response = gpt4_instance.post("generate_text", input_text=input_text)
-    generated_text = response["result"]
-    return generated_text
+execution_agent_instance = create_gpt4_instance(shared_instance_config, shared_instance_handle)
+task_creation_agent_instance = create_gpt4_instance(shared_instance_config, shared_instance_handle)
+task_prioritization_agent_instance = create_gpt4_instance(shared_instance_config, shared_instance_handle)
+
+def gpt4_execution_agent(input_text):
+    response = execution_agent_instance.post("execute_task", input_text=input_text)
+    result = response["result"]
+    return result
+
+def gpt4_task_creation_agent(input_text):
+    response = task_creation_agent_instance.post("create_tasks", input_text=input_text)
+    new_tasks = response["result"]
+    return new_tasks
+
+def gpt4_task_prioritization_agent(input_text):
+    response = task_prioritization_agent_instance.post("prioritize_tasks", input_text=input_text)
+    prioritized_tasks = response["result"]
+    return prioritized_tasks
