@@ -1,5 +1,9 @@
 # TaskSolvers
 
+Based on:
+[Yohei's Tweet (@yoheinakamajima)](https://twitter.com/yoheinakajima/status/1640934493489070080?s=46&t=tuKaIlkHjg0xHde1FOd6zQ)
+Written completely by GPT-4
+
 To set up the system you described, follow these steps:
 
 Integrate the Steamship API by following the documentation provided on https://docs.steamship.com/. This will enable communication with the Steamship platform.
