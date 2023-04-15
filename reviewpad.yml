@@ -41,17 +41,6 @@ workflows:
         extra-actions:
           - $assignCodeAuthorReviewers()
 
-  # This workflow praises contributors on their pull request contributions.
-  # This helps contributors feel appreciated.
-  - name: praise-contributors-on-milestones
-    description: Praise contributors based on their contributions
-    always-run: true
-    if:
-      # Praise contributors on their first pull request.
-      - rule: $pullRequestCountBy($author()) == 1
-        extra-actions:
-          - $commentOnce($sprintf("Thank you @%s for this first contribution!", [$author()]))
-
   # This workflow validates that pull requests follow the conventional commits specification.
   # This helps developers automatically generate changelogs.
   # For more details, see https://www.conventionalcommits.org/en/v1.0.0/.
